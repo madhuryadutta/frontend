@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { Container, Col, Row } from "react-bootstrap";
 import Account from "./Account";
 import FreeComponent from "./FreeComponent";
@@ -19,21 +19,15 @@ function App() {
           </section>
         </Col>
       </Row>
-      <Router>
-        <Fragment>
-          {/* create routes here */}
-          <Routes>
-            <Route exact path="/" component={<Account />} />
-            <Route exact path="/free" component={<FreeComponent />} />
-            <Route exact path='/auth' element={<ProtectedRoutes />}>
-              <Route exact path='/auth' element={<AuthComponent />} />
-            </Route>
-            {/* <ProtectedRoutes path="/auth" component={<AuthComponent />} /> */}
-          </Routes>
-      </Router>
-    </Fragment>
-            </Container >
-            );
+
+      {/* create routes here */}
+      <Switch>
+        <Route exact path="/" component={Account} />
+        <Route exact path="/free" component={FreeComponent} />
+        <ProtectedRoutes path="/auth" component={AuthComponent} />
+      </Switch>
+    </Container>
+  );
 }
 
 export default App;
