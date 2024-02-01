@@ -1,32 +1,29 @@
-import { Routes, Route } from "react-router-dom";
-import { Container, Col, Row } from "react-bootstrap";
-import Account from "./Account";
-import FreeComponent from "./FreeComponent";
-// import AuthComponent from "./AuthComponent";
-// import ProtectedRoutes from "./ProtectedRoutes";
+import React from 'react';
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Signin from './Signin';
+import Profile from './Profile';
 
 function App() {
+  const token = localStorage.getItem('accessToken');
+
+  if (!token) {
+    return <Signin />
+  }
+
   return (
-    <Container>
-      <Row>
-        <Col className="text-center">
-          <h1>React Authentication Tutorial</h1>
-
-          <section id="navigation">
-            <a href="/">Home</a>
-            <a href="/free">Free Component</a>
-            <a href="/auth">Auth Component</a>
-          </section>
-        </Col>
-      </Row>
-
-      {/* create routes here */}
-      <Routes>
-        <Route exact path="/" component={Account} />
-        <Route exact path="/free" component={FreeComponent} />
-        {/* <ProtectedRoutes path="/auth" component={AuthComponent} /> */}
-      </Routes>
-    </Container>
+    <div className="wrapper">
+      <Router>
+        <Routes>
+          <Route path="/profile" element={<Profile />} />
+          {/* <Profile /> */}
+          {/* </Route> */}
+          <Route path="/" element={<Profile />} />
+          {/* <Profile /> */}
+          {/* </Route> */}
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
