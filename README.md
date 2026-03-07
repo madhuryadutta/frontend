@@ -1,3 +1,17 @@
+## 📦 Repository Archived
+
+> ⚠️ **Status: Archived / Learning Project**
+
+This project was created as part of my **learning journey** while exploring a new **framework / language / feature**.
+
+The learning phase is now **complete**, and I am now focusing on **real-world projects and production work**.
+
+This repository will remain available for **reference and learning purposes** (and memories 😄).
+
+⚡ **Note:** No further updates or maintenance will be made to this repository.
+---
+
+
 # React Authentication
 
 This repository houses a project built during the course of learning how to build an authentication system with react. The following are the tutorials:
